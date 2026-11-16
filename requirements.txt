@@ -1,0 +1,25 @@
+#solo copiad todo y pegadlo a la terminal cuando termine te dira que esta listo
+#necesitais todo esto para que funcione en vuestro pc. quiza necesitais hacer lo de env
+
+# 1. Dependencias del sistema
+sudo apt update
+sudo apt install -y build-essential cmake wget bzip2
+
+# 2. Entorno virtual y activación
+python3 -m venv venv
+source venv/bin/activate
+
+# 3. Paquetes Python (solo los necesarios)
+pip install --upgrade pip
+pip install dlib opencv-python numpy
+
+# 4. Descargar modelos de dlib
+wget http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2
+bunzip2 shape_predictor_68_face_landmarks.dat.bz2
+wget http://dlib.net/files/dlib_face_recognition_resnet_model_v1.dat.bz2
+bunzip2 dlib_face_recognition_resnet_model_v1.dat.bz2
+
+# 5. Carpeta para fotos
+mkdir -p imagenes_personas
+
+echo "✅ Listo. Crea subcarpetas en 'imagenes_personas' con fotos y ejecuta: python reconocimiento.py"
